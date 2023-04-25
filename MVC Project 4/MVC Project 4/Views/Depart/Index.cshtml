@@ -1,0 +1,32 @@
+﻿@using MVC_Project_4.Models;
+@model List<Departman>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout3.cshtml";
+}
+
+<br />
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>Departman</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+        <th>Detaylar</th>
+    </tr>
+    <tbody>
+        @foreach (var d in Model)
+        {
+            <tr>
+                <th>@d.DepartmanID</th>
+                <td>@d.DepartmanAd</td>
+                <td><a href="Depart/DepartmanSil/@d.DepartmanID" class="btn btn-success">Sil</a></td>
+                <td><a href="#" class="btn btn-danger">Güncelle</a></td>
+                <td><a href="Depart/DepartmanGetir/@d.DepartmanID" class="btn btn-dark">Detay</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a href="/Depart/YeniDepartman/" class="btn btn-info">Yeni Departman</a>
